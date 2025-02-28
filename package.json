@@ -1,7 +1,7 @@
 {
   "name": "@zunh/constant",
   "version": "0.0.1",
-  "description": "This is your project description.",
+  "description": "Have some basic constants.",
   "scripts": {
     "build": "unbuild",
     "dev": "unbuild --stub",
@@ -16,12 +16,12 @@
   "author": "zhaogongchengsi <zzhhaon@163.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/zhaogongchengsi",
-  "homepage": "https://github.com/zhaogongchengsi/pkg-name#readme",
+  "homepage": "https://github.com/zhaogongchengsi/constant#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zhaogongchengsi/pkg-name.git"
+    "url": "git+https://github.com/zhaogongchengsi/constant.git"
   },
-  "bugs": "https://github.com/zhaogongchengsi/pkg-name/issues",
+  "bugs": "https://github.com/zhaogongchengsi/constant/issues",
   "sideEffects": false,
   "exports": {
     ".": {
