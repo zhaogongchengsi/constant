@@ -1,13 +1,55 @@
-export const bit = 1;
-export const kilobit = 1024 * bit;
-export const megabit = 1024 * kilobit;
-export const gigabit = 1024 * megabit;
-export const terabit = 1024 * gigabit;
 
+/**
+ * Represents the size of one bit in bits.
+ */
+export const bit = 1;
+/**
+ * Represents the size of one kilobit in bits.
+ * A kilobit is defined as 1024 bits.
+ */
+export const kilobit = 1024 * bit;
+/**
+ * Represents the size of one megabit in bits.
+ * A megabit is defined as 1024 kilobits.
+ */
+export const megabit = 1024 * kilobit;
+/**
+ * Represents the size of one gigabit in bits.
+ * A gigabit is defined as 1024 megabits.
+ */
+export const gigabit = 1024 * megabit;
+/**
+ * Represents the size of one terabit in bits.
+ * A terabit is defined as 1024 gigabits.
+ */
+export const terabit = 1024 * gigabit;
+/**
+ * Represents the size of one byte in bits.
+ * A byte is defined as 8 bits.
+ * This is the same as 1 kilobyte.
+ */
 export const byte = 8 * bit;
+
+/**
+ * Represents the size of one kilobyte in bytes.
+ * A kilobyte is defined as 1024 bytes.
+ * This is the same as 8 kilobits.
+ */
 export const kilobyte = 1024 * byte;
+/**
+ * Represents the size of one megabyte in bytes.
+ * A megabyte is defined as 1024 kilobytes.
+ */
 export const megabyte = 1024 * kilobyte;
+/**
+ * Represents the size of one gigabyte in bytes.
+ * A gigabyte is defined as 1024 megabytes.
+ */
 export const gigabyte = 1024 * megabyte;
+/**
+ * Represents the size of one terabyte in bytes.
+ * A terabyte is defined as 1024 gigabytes.
+ */
 export const terabyte = 1024 * gigabyte;
 
 const sizeUnitMap = {
@@ -41,6 +83,13 @@ export function size(value: number, unit: SizeUnit): number {
 
 const regex = new RegExp(`^(\\d+|NaN)(${keys.join('|')})$`);
 
+/**
+ * Converts a string value with a size unit into its numeric representation in bits.
+ * 
+ * @param value - A string containing a number followed by a size unit (e.g., "10MB").
+ * @returns The numeric representation of the size in bits.
+ * @throws Will throw an error if the input format is invalid or the size unit is unknown.
+ */
 export function commonly(value: `${number}${SizeUnit}`): number {
 	const match = value.match(regex);
 
@@ -49,11 +98,11 @@ export function commonly(value: `${number}${SizeUnit}`): number {
 	}
 
 	const [, numStr, unit] = match;
-	const num = parseInt(numStr, 10);
+	const parsedValue = parseInt(numStr, 10);
 
-	if (isNaN(num) || !keys.includes(unit as SizeUnit)) {
+	if (isNaN(parsedValue) || !keys.includes(unit as SizeUnit)) {
 		throw new Error(`Invalid size value or unit: ${value}`);
 	}
 
-	return size(num, unit as SizeUnit);
+	return size(parsedValue, unit as SizeUnit);
 }
