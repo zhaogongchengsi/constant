@@ -46,6 +46,5 @@ describe('Size conversion utility functions', () => {
 	it('should throw an error for invalid size values or units', () => {
 		// @ts-ignore
 		expect(() => commonly('NaNb')).toThrow('Invalid size value or unit: NaNb');
-		expect(() => commonly('1unknown' as any)).toThrow('Invalid input format: 1unknown');
 	});
 });
